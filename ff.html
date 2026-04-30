@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Web - REVlonly</title>
+    <title>Links FF - REVlonly</title>
 
     <link rel="icon" type="image/png" href="logo2.png">
 
@@ -12,73 +12,146 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            user-select: none;
-            -webkit-user-select: none;
+        body { font-family: 'Plus Jakarta Sans', sans-serif; user-select: none; -webkit-user-select: none; overflow-x: hidden; }
+        
+        /* --- ANIMASI MASUK --- */
+        @keyframes slideFromLeftToRight {
+            from { opacity: 0; transform: translateX(-300px) rotate(-5deg); }
+            to { opacity: 1; transform: translateX(0) rotate(2deg); }
         }
 
-        .animate-pulse-slow {
-            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes pulse {
+        /* --- ANIMASI KELUAR (BALIK KE UTAMA) --- */
+        @keyframes slideOutToLeft {
+            from { opacity: 1; transform: translateX(0) rotate(2deg); }
+            to { opacity: 0; transform: translateX(-300px) rotate(-10deg); }
+        }
 
-            0%,
-            100% {
-                opacity: 1;
-            }
+        @keyframes fadeOutScale {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.9); }
+        }
 
-            50% {
-                opacity: .5;
-            }
+        .animate-profile-in { 
+            animation: slideFromLeftToRight 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; 
+        }
+        
+        .animate-menu-in { 
+            animation: fadeInScale 0.8s ease-out 0.2s both; 
+        }
+
+        .exit-profile-back {
+            animation: slideOutToLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+        }
+
+        .exit-menu-back {
+            animation: fadeOutScale 0.5s ease-in forwards;
+        }
+
+        /* Style tombol clean tapi dengan aksen FF (Orange/Red) */
+        .btn-clean {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .btn-clean:hover {
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15); /* Orange shadow */
         }
     </style>
 </head>
 
-<body
-    class="bg-gradient-to-b from-white via-[#f1f5f9] to-[#bae6fd] min-h-screen flex items-center justify-center text-black overflow-x-hidden p-6">
+<body class="bg-gradient-to-br from-white via-slate-100 to-orange-100 min-h-screen flex items-center justify-center p-4 md:p-10 relative overflow-x-hidden">
 
-    <div
-        class="absolute bottom-0 left-0 w-full h-52 pointer-events-none bg-gradient-to-t from-[#7dd3fc]/60 to-transparent blur-2xl">
-    </div>
+    <div class="absolute top-0 left-0 w-64 h-64 bg-orange-300/20 rounded-full blur-[100px] -z-10"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-red-400/20 rounded-full blur-[120px] -z-10"></div>
 
-    <div
-        class="relative bg-white/80 backdrop-blur-md shadow-2xl rounded-[2.5rem] p-8 w-full max-w-[400px] text-center space-y-8 border border-white/50">
+    <div class="relative bg-white/70 backdrop-blur-xl w-full max-w-5xl min-h-[550px] md:h-auto rounded-[2.5rem] shadow-2xl flex flex-col-reverse md:flex-row overflow-hidden border border-white/50">
 
-        <div class="flex justify-center pt-4">
-            <img src="logo.png" alt="REVlonly Logo"
-                class="h-10 w-auto object-contain drop-shadow-sm pointer-events-none" draggable="false">
-        </div>
-
-        <div class="py-10 space-y-4">
-            <div class="inline-block px-4 py-1 rounded-full bg-sky-50 border border-sky-100">
-                <p class="text-sky-500 font-bold text-[10px] tracking-widest uppercase animate-pulse-slow">Under
-                    Development</p>
+        <div id="menu-container" class="w-full md:w-[60%] p-6 md:p-12 flex flex-col justify-center space-y-4 animate-menu-in">
+            
+            <div class="mb-4 text-center">
+                <h2 class="text-2xl font-black text-slate-800 tracking-tight">Free Fire Service</h2>
+                <p class="text-slate-400 text-xs font-semibold uppercase tracking-widest mt-1">Push Rank & Tourney</p>
             </div>
-            <h1 class="text-4xl font-extrabold text-slate-800 tracking-tight">Coming Soon</h1>
-            <p class="text-gray-500 text-sm leading-relaxed px-6 font-medium">
-                Sabar ya bro! Layanan untuk game ini sedang kami siapkan supaya hasilnya maksimal.
-            </p>
+
+            <div class="grid grid-cols-1 gap-4 w-full">
+                <a href="https://wa.me/6283191158298?text=Halooo%20saya%20mau%20order%20joki%20FF%20Bang"
+                    class="btn-clean flex items-center justify-center w-full px-6 py-4 rounded-2xl text-orange-600 font-extrabold hover:bg-orange-500 hover:text-white hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                    Order Joki FF
+                </a>
+
+                <a href="pricelist_ff.html"
+                    class="btn-clean flex items-center justify-center w-full px-6 py-4 rounded-2xl text-orange-600 font-extrabold hover:bg-orange-500 hover:text-white hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                    Price List Rank FF
+                </a>
+
+                <a href="https://www.tiktok.com/@kocheng_212"
+                    class="btn-clean flex items-center justify-center w-full px-6 py-4 rounded-2xl text-orange-600 font-extrabold hover:bg-orange-500 hover:text-white hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                    Testimoni FF
+                </a>
+
+                <a href="index.html" id="back-to-main"
+                    class="flex items-center justify-center w-full px-6 py-4 rounded-2xl bg-slate-800 text-white font-extrabold hover:bg-slate-900 hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl mt-4">
+                    Kembali ke Menu Utama
+                </a>
+            </div>
         </div>
 
-        <div class="space-y-3 w-full">
-            <a href="index.html"
-                class="block w-full py-3.5 rounded-full text-center border border-sky-400/50 text-sky-500 bg-transparent transition-all duration-300 ease-out hover:bg-sky-400 hover:text-white hover:scale-[1.03] active:scale-95 shadow-sm font-bold">
-                Kembali ke Menu Utama
-            </a>
+        <div id="profile-container" class="w-full md:w-[40%] bg-white/50 flex flex-col items-center justify-center p-8 border-t md:border-t-0 md:border-l border-white/60 animate-profile-in">
+            <div class="relative group">
+                <div class="absolute inset-0 bg-orange-400 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                <div class="relative w-32 h-32 md:w-48 md:h-48 rounded-[2rem] border-4 border-white shadow-2xl overflow-hidden rotate-2 group-hover:rotate-0 transition-all duration-500">
+                    <img src="rem.jpeg" alt="rem Profile" class="w-full h-full object-cover">
+                </div>
+            </div>
 
-            <a href="https://wa.me/6283191158298"
-                class="block w-full py-3.5 rounded-full text-center border border-slate-200 text-slate-400 bg-transparent transition-all duration-300 font-bold text-sm">
-                Hubungi Admin
-            </a>
+            <div class="mt-8 text-center">
+                <img src="logo.png" alt="REVlonly Logo" class="h-12 w-auto object-contain mx-auto drop-shadow-md">
+                <div class="h-1.5 w-12 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+                
+                <p class="mt-4 text-orange-600 font-extrabold text-[11px] tracking-[0.2em] uppercase italic px-4">
+                    | Booyah With REVlonly |
+                </p>
+                
+                <div class="mt-3 px-6">
+                    <p class="text-slate-500 text-[12px] font-medium leading-relaxed">
+                        Mau naik Master atau Grandmaster?<br>
+                        <span class="text-slate-600 font-bold">Proses cepat & tanpa cheat!</span>
+                    </p>
+                </div>
+            </div>
+            
+            <p class="text-[9px] text-slate-400 uppercase tracking-[0.4em] text-center pt-8 font-bold hidden md:block">© REVlonly 2026</p>
         </div>
 
-        <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] pt-4 font-bold">© REVlonly 2026</p>
     </div>
 
     <script>
+        // LOGIC ANIMASI KELUAR
+        const btnBack = document.getElementById('back-to-main');
+        const profileContainer = document.getElementById('profile-container');
+        const menuContainer = document.getElementById('menu-container');
+
+        btnBack.addEventListener('click', function(e) {
+            e.preventDefault();
+            const destination = this.href;
+
+            profileSide = profileContainer; 
+            profileSide.classList.remove('animate-profile-in');
+            profileSide.classList.add('exit-profile-back');
+            menuContainer.classList.add('exit-menu-back');
+
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 700);
+        });
+
+        // Security
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'i' || (e.shiftKey && e.key === 'I'))) {
@@ -86,7 +159,5 @@
             }
         });
     </script>
-
 </body>
-
 </html>
